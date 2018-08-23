@@ -11,26 +11,27 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             int cantPerfecto=0;
-            int i=0;
-            int j = 0;
+            int num=0;
+            int i = 0;
             int suma=0;
-            while(cantPerfecto < 4)
+            while(cantPerfecto <= 4)
             {
-                i++;
-                for(j=1;j<=i;j++)
+                num++;
+                for(i=1;i<num;i++)
                 {
-                    if ((i % j) == 0)
+                    if ((num % i) == 0)
                     {
-                        suma = suma + j;
+                        suma = suma + i;
                     }
                 }
-                if(i==suma)
+                if(num==suma)
                 {
-                    Console.WriteLine("PERFECTO {0}",i);
                     cantPerfecto++;
+                    Console.WriteLine("Numero perfecto {0}: {1}", cantPerfecto, num);
                 }
                 suma = 0;
             }
+            Console.ReadKey();
         }
     }
 }

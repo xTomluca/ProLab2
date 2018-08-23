@@ -1,0 +1,7 @@
+D:\ProLab2\Ejercicio_5\bin\Debug\Ejercicio_5.exe.config
+D:\ProLab2\Ejercicio_5\bin\Debug\Ejercicio_5.exe
+D:\ProLab2\Ejercicio_5\bin\Debug\Ejercicio_5.pdb
+D:\ProLab2\Ejercicio_5\obj\Debug\Ejercicio_5.csprojAssemblyReference.cache
+D:\ProLab2\Ejercicio_5\obj\Debug\Ejercicio_5.csproj.CoreCompileInputs.cache
+D:\ProLab2\Ejercicio_5\obj\Debug\Ejercicio_5.exe
+D:\ProLab2\Ejercicio_5\obj\Debug\Ejercicio_5.pdb
