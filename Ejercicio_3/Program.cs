@@ -17,7 +17,7 @@ namespace Ejercicio_3
             numStr = Console.ReadLine();
             if(int.TryParse(numStr, out num))
             {
-                for(i=0;i<=num;i++)
+                for(i=1;i<=num;i++)
                 {
                     if((i % num) == 0)
                     {
