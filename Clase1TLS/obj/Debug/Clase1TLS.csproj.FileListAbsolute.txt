@@ -1,0 +1,7 @@
+D:\VisualStudio\Clase1TLS\Clase1TLS\bin\Debug\Clase1TLS.exe.config
+D:\VisualStudio\Clase1TLS\Clase1TLS\bin\Debug\Clase1TLS.exe
+D:\VisualStudio\Clase1TLS\Clase1TLS\bin\Debug\Clase1TLS.pdb
+D:\VisualStudio\Clase1TLS\Clase1TLS\obj\Debug\Clase1TLS.csprojAssemblyReference.cache
+D:\VisualStudio\Clase1TLS\Clase1TLS\obj\Debug\Clase1TLS.csproj.CoreCompileInputs.cache
+D:\VisualStudio\Clase1TLS\Clase1TLS\obj\Debug\Clase1TLS.exe
+D:\VisualStudio\Clase1TLS\Clase1TLS\obj\Debug\Clase1TLS.pdb
