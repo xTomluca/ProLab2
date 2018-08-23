@@ -20,8 +20,9 @@ namespace Ejercicio_2
             num = int.Parse(numStr);
             if (num > 0)
             {
-                cuadrado = num * num;
-                cubo = num * num * num;
+                cuadrado = (int)Math.Pow(num, 2);
+                cubo = (int)Math.Pow(num, 3);
+
                 Console.WriteLine("CUADRADO {0}", cuadrado);
                 Console.WriteLine("CUBO {0}", cubo);
             }

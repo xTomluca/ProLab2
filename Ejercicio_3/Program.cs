@@ -10,8 +10,9 @@ namespace Ejercicio_3
     {
         static void Main(string[] args)
         {
-            int i;
+            int i,j;
             int num;
+            int primo = 0;
             string numStr;
             Console.WriteLine("INGRESE NUMERO");
             numStr = Console.ReadLine();
@@ -19,10 +20,17 @@ namespace Ejercicio_3
             {
                 for(i=1;i<=num;i++)
                 {
-                    if((i % num) == 0)
+                    for (j = 1; j <= i; j++)
                     {
-                        Console.WriteLine("PRIMOS : {0}", i);
+                        if ((i % j) == 0)
+                        {
+                            primo++;
+                        }
+                        
                     }
+                    if (primo == 2)
+                        Console.WriteLine("ES PRIMO: {0}", i);
+                    primo = 0;
                 }
 
             }
