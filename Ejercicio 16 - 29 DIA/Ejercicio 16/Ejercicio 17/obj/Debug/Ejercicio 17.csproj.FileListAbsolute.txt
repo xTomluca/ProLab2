@@ -1,0 +1,7 @@
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\bin\Debug\Ejercicio 17.exe.config
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\bin\Debug\Ejercicio 17.exe
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\bin\Debug\Ejercicio 17.pdb
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\obj\Debug\Ejercicio 17.csprojAssemblyReference.cache
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\obj\Debug\Ejercicio 17.csproj.CoreCompileInputs.cache
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\obj\Debug\Ejercicio 17.exe
+D:\GITTLS\ProLab2\Ejercicio 16 - 29 DIA\Ejercicio 16\Ejercicio 17\obj\Debug\Ejercicio 17.pdb
