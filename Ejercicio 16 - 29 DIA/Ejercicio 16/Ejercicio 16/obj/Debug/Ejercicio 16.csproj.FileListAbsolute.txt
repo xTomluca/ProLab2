@@ -1,0 +1,7 @@
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\bin\Debug\Ejercicio 16.exe.config
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\bin\Debug\Ejercicio 16.exe
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\bin\Debug\Ejercicio 16.pdb
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\obj\Debug\Ejercicio 16.csprojAssemblyReference.cache
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\obj\Debug\Ejercicio 16.csproj.CoreCompileInputs.cache
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\obj\Debug\Ejercicio 16.exe
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio 16\obj\Debug\Ejercicio 16.pdb

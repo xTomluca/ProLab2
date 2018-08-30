@@ -1,0 +1,6 @@
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio Dieciseis\bin\Debug\Ejercicio Dieciseis.exe.config
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio Dieciseis\bin\Debug\Ejercicio Dieciseis.exe
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio Dieciseis\bin\Debug\Ejercicio Dieciseis.pdb
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio Dieciseis\obj\Debug\Ejercicio Dieciseis.csproj.CoreCompileInputs.cache
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio Dieciseis\obj\Debug\Ejercicio Dieciseis.exe
+D:\TLS\Ejercicio 16\Ejercicio 16\Ejercicio Dieciseis\obj\Debug\Ejercicio Dieciseis.pdb
