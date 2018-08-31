@@ -18,10 +18,11 @@ namespace Ejercicio_17
             azul.color = ConsoleColor.Blue;
             azul.tinta = 100;
             rojo.color = ConsoleColor.Red;
-            rojo.tinta = 50;
-            if (rojo.Pintar(10, out dibujo) == true)
+            rojo.tinta = 10;
+            if (rojo.Pintar(51, out dibujo) == true)
             {
-                Console.WriteLine("{0}\n Tinta actual: {1}", dibujo,rojo.tinta);
+                Console.ForegroundColor = rojo.color; 
+                Console.WriteLine("{0}\nTinta actual: {1}", dibujo,rojo.tinta);
             }
             Console.ReadKey();
         }
