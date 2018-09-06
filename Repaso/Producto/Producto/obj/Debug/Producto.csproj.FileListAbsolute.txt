@@ -1,0 +1,7 @@
+D:\TLS\ProLab2\Repaso\Producto\Producto\bin\Debug\Producto.exe.config
+D:\TLS\ProLab2\Repaso\Producto\Producto\bin\Debug\Producto.exe
+D:\TLS\ProLab2\Repaso\Producto\Producto\bin\Debug\Producto.pdb
+D:\TLS\ProLab2\Repaso\Producto\Producto\obj\Debug\Producto.csprojAssemblyReference.cache
+D:\TLS\ProLab2\Repaso\Producto\Producto\obj\Debug\Producto.csproj.CoreCompileInputs.cache
+D:\TLS\ProLab2\Repaso\Producto\Producto\obj\Debug\Producto.exe
+D:\TLS\ProLab2\Repaso\Producto\Producto\obj\Debug\Producto.pdb
