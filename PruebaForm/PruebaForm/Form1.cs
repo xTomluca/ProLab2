@@ -31,12 +31,16 @@ namespace PruebaForm
         {
             string numStr = "";
             double peso = 0;
+            double dolar = 0;
             numStr = textBox6.Text;
             if (double.TryParse(numStr, out peso))
             {
-                peso = peso * 37;
-                textBox1.Text = peso.ToString();
+                peso = peso * (38.550);
+                textBox1.Text = peso.ToString("N2");
+                dolar = peso / 38.550;
+                textBox2.Text = dolar.ToString("N2");
             }    
+
 
         }
 
