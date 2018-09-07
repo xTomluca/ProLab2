@@ -11,10 +11,7 @@ namespace Producto
         string codigoDeBarra;
         string marca;
         float precio;
-        public Producto()
-        {
 
-        }
         public Producto(string marca, string codigo, float precio)
         {
             this.marca = marca;
