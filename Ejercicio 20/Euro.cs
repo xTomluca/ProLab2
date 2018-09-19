@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Billetes
 {
-    class Euro
+    public class Euro
     {
         double cantidad;
         private static float cotizRespectoDolar;
-        public Euro()
+        private Euro()
         {
             cotizRespectoDolar = 1.3642F;
         }
-        public Euro(double cantidad)
-        {
+        public Euro(double cantidad) : this()
+		{
             this.cantidad = cantidad;
         }
         private Euro(double cantidad, float cotizacion) : this(cantidad)
@@ -30,15 +30,48 @@ namespace Billetes
         {
             return cotizRespectoDolar;
         }
-        public static explicit operator Pesos(Euro d)
+        public static explicit operator Pesos(Euro e)
         {
-            Pesos p = new Pesos((d.cantidad * Euro.cotizRespectoDolar * Pesos.GetCotizacion()));
+            Pesos p = new Pesos(((e.GetCantidad() * Euro.GetCotizacion()) * Pesos.GetCotizacion()));
             return p;
         }
-        public static explicit operator Dolar(Euro d)
+        public static explicit operator Dolar(Euro e)
         {
-            Dolar e = new Dolar((d.cantidad * Euro.GetCotizacion()));
-            return e;
+            Dolar d = new Dolar((e.GetCantidad() * Euro.GetCotizacion()));
+            return d;
         }
-    }
+		public static bool operator !=(Euro e, Dolar d)
+		{
+			return !(e == d);
+		}
+		public static bool operator !=(Euro e, Pesos p)
+		{
+			return !(e == p);
+		}
+		public static bool operator !=(Euro e1, Euro e2)
+		{
+			return !(e1 == e2);
+		}
+		public static bool operator ==(Euro e, Dolar d)
+		{
+			if (e.GetCantidad() == (d.GetCantidad() / Euro.GetCotizacion()))
+				return true;
+			return false;
+		}
+		public static bool operator ==(Euro e, Pesos p)
+		{
+			if(e.GetCantidad() == ((p.GetCantidad()/Pesos.GetCotizacion())/Euro.GetCotizacion()))
+				return true;
+			return false;
+		}
+		public static bool operator ==(Euro e1, Euro e2)
+		{
+			if (e1.GetCantidad() == e2.GetCantidad())
+				return true;
+			return false;
+		}
+
+
+
+	}
 }

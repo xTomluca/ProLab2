@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Billetes
 {
-    class Dolar
+    public class Dolar
     {
         private double cantidad;
         private static float cotizRespectoDolar;
@@ -14,7 +14,7 @@ namespace Billetes
         {
             cotizRespectoDolar = 1F;
         }
-        public Dolar(double cantidad)
+        public Dolar(double cantidad) : this()
         {
             this.cantidad = cantidad;
         }
@@ -37,8 +37,63 @@ namespace Billetes
         }
         public static explicit operator Euro(Dolar d)
         {
-            Euro e = new Euro((d.cantidad / Euro.GetCotizacion()));
+            Euro e = new Euro((d.GetCantidad() / Euro.GetCotizacion()));
             return e;
         }
-    }
+		public static implicit operator Dolar(double d)
+		{
+			Dolar aux = new Dolar(d);
+			return aux;
+		}
+		public static bool operator !=(Dolar d, Euro e)
+		{
+			return !(d == e);
+		}
+		public static bool operator ==(Dolar d, Euro e)
+		{
+			if (d.GetCantidad() == (e.GetCantidad() * Euro.GetCotizacion()))
+				return true;
+			return false;
+		}
+		public static bool operator !=(Dolar d, Pesos p)
+		{
+			return !(d==p);
+		}
+		public static bool operator ==(Dolar d, Pesos p)
+		{
+			if (d.GetCantidad() == (p.GetCantidad()/Pesos.GetCotizacion()))
+				return true;
+			return false;
+		}
+		public static bool operator !=(Dolar d1, Dolar d2)
+		{
+			return !(d1.GetCantidad() == d2.GetCantidad());
+		}
+		public static bool operator ==(Dolar d1, Dolar d2)
+		{
+			if (d1.GetCantidad() == d2.GetCantidad())
+				return true;
+			return false;
+		}
+		public static Dolar operator -(Dolar d, Euro e)
+		{
+			Dolar aux = new Dolar(d.GetCantidad() - (e.GetCantidad() * Euro.GetCotizacion()));
+			return aux;
+		}
+		public static Dolar operator -(Dolar d, Pesos p)
+		{
+			Dolar aux = new Dolar(d.GetCantidad() - (p.GetCantidad() / Pesos.GetCotizacion()));
+			return aux;
+		}
+		public static Dolar operator +(Dolar d, Euro e)
+		{
+			Dolar aux = new Dolar(d.GetCantidad() + (e.GetCantidad() * Euro.GetCotizacion()));
+			return aux;
+		}
+		public static Dolar operator +(Dolar d, Pesos p)
+		{
+			Dolar aux = new Dolar(d.GetCantidad() + (p.GetCantidad() / Pesos.GetCotizacion()));
+			return aux;
+		}
+	}
 }
