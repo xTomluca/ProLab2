@@ -21,7 +21,7 @@ namespace Ejercicio_31
             }
             set
             {
-
+                    
             }
 
         }
