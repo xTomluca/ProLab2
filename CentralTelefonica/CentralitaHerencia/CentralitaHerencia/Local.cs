@@ -28,9 +28,9 @@ namespace CentralitaHerencia
         {
 
         }
-        public string Mostrar()
+        public new string Mostrar()
         {
-            string aux = this.Mostrar();
+            string aux = base.Mostrar();
             StringBuilder auxBuilder = new StringBuilder();
             auxBuilder.AppendFormat("{0} Costro: {1}", aux, this.CostoLlamada);
             return auxBuilder.ToString();

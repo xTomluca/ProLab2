@@ -44,9 +44,8 @@ namespace CentralitaHerencia
             this.duracion = duracion;
         }
 
-        public int OrdenarPorDuracion(Llamada llamada1, Llamada llamada2)
+        public static int OrdenarPorDuracion(Llamada llamada1, Llamada llamada2)
         {
-
             if (llamada1.Duracion > llamada2.Duracion)
                 return 1;
             else if(llamada1.Duracion < llamada2.Duracion)
@@ -62,7 +61,7 @@ namespace CentralitaHerencia
         public enum tipoLLamada
         {
             Local,
-            Provincia,
+            Provincial,
             Todas
         }
 

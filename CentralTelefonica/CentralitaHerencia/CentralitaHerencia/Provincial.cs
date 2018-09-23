@@ -33,9 +33,9 @@ namespace CentralitaHerencia
             //if (this.franjaHoraria == Franja.Franja_3)
                 return this.duracion * 0.66F;
         }
-        public string Mostrar()
+        public new string Mostrar()
         {
-            string aux = this.Mostrar();
+            string aux = base.Mostrar();
             StringBuilder builder = new StringBuilder();
             builder.AppendFormat("{0} {1} {2}", aux, CostoLlamada,franjaHoraria);
             return builder.ToString();
