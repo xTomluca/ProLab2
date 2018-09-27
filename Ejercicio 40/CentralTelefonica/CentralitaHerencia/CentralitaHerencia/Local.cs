@@ -35,6 +35,12 @@ namespace CentralitaHerencia
             auxBuilder.AppendFormat("{0} Costo: {1}", aux, this.CostoLlamada);
             return auxBuilder.ToString();
         }
+        public override bool Equals(object obj)
+        {
+            if (obj is Local)
+                return true;
+            return fal
+        }
 
     }
 }
