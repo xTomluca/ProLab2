@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Curso
+    public class Curso
     {
         private List<Alumno> alumnos;
         private short anio;
@@ -24,7 +24,7 @@ namespace Entidades
         {
             alumnos = new List<Alumno>();
         }
-        public Curso(short anio, Divisiones division, Profesor profesor)
+        public Curso(short anio, Divisiones division, Profesor profesor) : this()
         {
             this.anio = anio;
             this.division = division;
@@ -35,7 +35,7 @@ namespace Entidades
             StringBuilder str = new StringBuilder();
             foreach(Alumno aux in c.alumnos)
             {
-                str.AppendFormat(aux.ExponerDatos());
+                str.Append(aux.ExponerDatos());
             }
             return str.ToString();
         }
@@ -51,7 +51,7 @@ namespace Entidades
         }
         public static Curso operator +(Curso c, Alumno a)
         {
-            if(c != a)
+            if(c == a)
             {
                 c.alumnos.Add(a);
             }
