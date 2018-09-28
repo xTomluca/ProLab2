@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaConsola", "VistaConsola\VistaConsola.csproj", "{2597EA48-0A33-497C-8165-F861641BE8F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaForm", "VistaForm\VistaForm.csproj", "{BE0B6996-D88D-48CC-A832-AE3572869843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{8FE5F92B-23F2-4F60-B5C5-7CBD15AF72D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2597EA48-0A33-497C-8165-F861641BE8F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2597EA48-0A33-497C-8165-F861641BE8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2597EA48-0A33-497C-8165-F861641BE8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2597EA48-0A33-497C-8165-F861641BE8F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE0B6996-D88D-48CC-A832-AE3572869843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0B6996-D88D-48CC-A832-AE3572869843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0B6996-D88D-48CC-A832-AE3572869843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0B6996-D88D-48CC-A832-AE3572869843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE5F92B-23F2-4F60-B5C5-7CBD15AF72D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE5F92B-23F2-4F60-B5C5-7CBD15AF72D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE5F92B-23F2-4F60-B5C5-7CBD15AF72D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE5F92B-23F2-4F60-B5C5-7CBD15AF72D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89E50438-73F1-4E71-9B8C-EC75BCD1E923}
+	EndGlobalSection
+EndGlobal
