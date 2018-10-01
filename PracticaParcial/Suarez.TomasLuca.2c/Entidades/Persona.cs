@@ -27,7 +27,7 @@ namespace Entidades
             }
             set
             {
-                if(this.ValidarDocumentacion(value))
+                if(this.ValidarDocumentacion(value)==true)
                     this.documento = value;
             }
         }
@@ -41,7 +41,9 @@ namespace Entidades
         public virtual string ExponerDatos()
         {
             StringBuilder str = new StringBuilder();
-            str.AppendFormat("{0}, {1} DNI: {2}", this.Apellido, this.Nombre, this.Documento);
+            str.AppendFormat("Nombre: {0}\n", this.Nombre);
+            str.AppendFormat("Apellido: {0}\n", this.Apellido);
+            str.AppendFormat("Dni: {0}\n", this.Documento);
             return str.ToString();
         }
         public Persona(string nombre, string apellido, string documento)

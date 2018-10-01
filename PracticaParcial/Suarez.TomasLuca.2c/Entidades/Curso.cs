@@ -30,12 +30,16 @@ namespace Entidades
             this.division = division;
             this.profesor = profesor;
         }
-        public static explicit   operator string (Curso c)
+        public static explicit operator string (Curso c)
         {
+            if (c is null)
+                return "";
+            
             StringBuilder str = new StringBuilder();
-            foreach(Alumno aux in c.alumnos)
+            str.AppendLine(c.profesor.ExponerDatos());
+            foreach (Alumno aux in c.alumnos)
             {
-                str.Append(aux.ExponerDatos());
+                str.AppendLine(aux.ExponerDatos());
             }
             return str.ToString();
         }

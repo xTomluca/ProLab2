@@ -26,26 +26,29 @@ namespace Entidades
         {
             bool r = false;
             if(doc.Length==9)
-                for(int i=0; i<doc.Length-1;i++)
+                for(int i=0; i<doc.Length;i++)
                 {
                     int aux = 0;
                     if ((i == 2 || i == 7) && (doc[i] == '-'))
                     {
                         continue;
                     }              
-                    else if((i != 2 || i != 7) && int.TryParse(doc[i].ToString(), out aux))
+                    else if((i != 2 && i != 7) && int.TryParse(doc[i].ToString(), out aux))
                     {
                         r = true;
                     }
                     else
+                    {
+                        r = false;
                         break;
+                    }
                 }
             return r;
         }
         public override string ExponerDatos()
         {
             StringBuilder str = new StringBuilder();
-            str.AppendFormat("{0} {1}", base.ExponerDatos(), this.AnioDivision);
+            str.AppendFormat("{0}Division: {1}\n", base.ExponerDatos(), this.AnioDivision);
             return str.ToString();
         }
 

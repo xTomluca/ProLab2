@@ -38,14 +38,23 @@ namespace Entidades
                     {
                         continue;
                     }
-                    else if ((i != 2 || i != 7) && int.TryParse(doc[i].ToString(), out aux))
+                    else if ((i != 2 && i != 7) && int.TryParse(doc[i].ToString(), out aux))
                     {
                         r = true;
                     }
                     else
+                    {
+                        r = false;
                         break;
+                    }
                 }
             return r;
+        }
+        public override string ExponerDatos()
+        {
+            StringBuilder str = new StringBuilder();
+            str.AppendFormat("{0}Fecha de Ingreso: {1}\nAntiguedad: {2}\n", base.ExponerDatos(),this.fechaIngreso, this.Antiguedad);
+            return str.ToString();
         }
     }
 }
