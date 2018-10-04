@@ -53,7 +53,7 @@ namespace Entidades
             StringBuilder str = new StringBuilder();
             foreach(Comensal aux in this.Comensales)
             {
-                if(aux is Comensal)
+                if(aux is Mayor)
                 {
                     str.AppendLine(((Mayor)aux).ToString());
                 }
