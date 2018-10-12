@@ -44,11 +44,12 @@ namespace TryCatch
         {
             try
             { 
+
             }
 
-            catch(Exception c)
+            catch(DivideByZeroException excepcion)
             {
-                throw (new Exception("ERROR"));
+                throw (new Exception("ERROR", excepcion));
             }
         }
 
