@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace TryCatch
 {
-    class Program
+    class UnaExcepcion : Exception
     {
-        static void Main(string[] args)
+        public UnaExcepcion(Exception exception)
         {
-            TryCatch prueba = new TryCatch("1024","0","12481347124124");
-            Console.ReadKey();
+            Console.WriteLine("{0}", exception.Message);
         }
 
     }

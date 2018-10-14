@@ -10,9 +10,6 @@ namespace TryCatch
     {
         static void Main(string[] args)
         {
-            TryCatch prueba = new TryCatch("1024","0","12481347124124");
-            Console.ReadKey();
         }
-
     }
 }

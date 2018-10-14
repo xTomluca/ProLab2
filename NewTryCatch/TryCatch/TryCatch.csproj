@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84B83182-419F-4DE2-ACC6-CC435683A8AB}</ProjectGuid>
+    <ProjectGuid>{DFBA6BA2-D356-44B4-ABA5-20540AA3F626}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>TryCatch</RootNamespace>
     <AssemblyName>TryCatch</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EjercicioExcepcion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TryCatch.cs" />
-    <Compile Include="UnaExcepcion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

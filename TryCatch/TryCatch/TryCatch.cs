@@ -9,6 +9,7 @@ namespace TryCatch
     class TryCatch
     {
         int num;
+        int numero2;
         public static int MetodoExcepcion(string numStr, string numStr2)
         {
             int retorno = 0;
@@ -29,28 +30,32 @@ namespace TryCatch
             string retorno = string.Format("El numero es:  {0}",this.num);
             return retorno;
         }
-        public TryCatch(string num1,string num2)
+        public TryCatch(string num1,string num2, string num3) : this(num3)
         {
             try
             {
-                MetodoExcepcion(num1, num2);
+                this.num = MetodoExcepcion(num1, num2);
             }
             catch(DivideByZeroException excepcion)
             {
                 throw excepcion;
             }
         }
-        public TryCatch()
+        public TryCatch(string numero)
         {
             try
-            { 
-
-            }
-
-            catch(DivideByZeroException excepcion)
             {
-                throw (new Exception("ERROR", excepcion));
+                this.numero2 = int.Parse(numero);
             }
+
+            catch(DivideByZeroException ex)
+            {
+                throw (new UnaExcepcion(ex));
+            }
+           catch(OverflowException ex1)
+           {
+             throw (new UnaExcepcion(ex1));
+           }
         }
 
     }
