@@ -10,6 +10,23 @@ namespace TryCatch
     {
         static void Main(string[] args)
         {
+            string numOne="";
+            string numTwo = "";
+            Console.WriteLine("Numero uno:");
+            numOne = Console.ReadLine();
+            Console.WriteLine("Numero Dos:");
+            numTwo = Console.ReadLine();
+            try
+            {
+                EjercicioExcepcion.MetodoExcepcion(numOne, numTwo);
+            }
+            catch(MiExcepcion e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("-----");
+                Console.WriteLine(e.InnerException);
+            }
+            Console.ReadKey();
         }
     }
 }
