@@ -36,7 +36,7 @@ namespace CentralitaHerencia
         }
         public override bool Equals(object obj)
         {
-            if (obj.GetType() == typeof(Local))
+            if (obj is Local)
                 return true;
             return false;
         }

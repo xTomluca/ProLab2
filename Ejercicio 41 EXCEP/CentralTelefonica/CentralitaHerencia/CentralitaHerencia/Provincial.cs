@@ -49,7 +49,7 @@ namespace CentralitaHerencia
         }
         public override bool Equals(object obj)
         {
-            if (obj.GetType() == typeof(Provincial))
+            if (obj is Provincial)
                 return true;
             return false;
         }
