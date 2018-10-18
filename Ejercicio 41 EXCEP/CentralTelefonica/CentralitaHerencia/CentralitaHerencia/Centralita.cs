@@ -122,8 +122,23 @@ namespace CentralitaHerencia
         }
         public static Centralita operator +(Centralita c, Llamada nuevaLlamada)
         {
+            /*if (c == nuevaLlamada)
+            {
+                if(nuevaLlamada is Local)
+                    throw new CentralitaExcepcion("ERROR","Local", "Agregar");
+                if (nuevaLlamada is Provincial)
+                    throw new CentralitaExcepcion("ERROR", "Provincia", "Agregar");
+
+            }
+            c.AgregarLlamada(nuevaLlamada);
+            return c;*/
             if (c == nuevaLlamada)
-                return c;
+            {
+                if (nuevaLlamada is Local)
+                    throw new CentralitaExcepcion("ERROR", "Local", "Agregar");
+                if (nuevaLlamada is Provincial)
+                    throw new CentralitaExcepcion("ERROR", "Provincia", "Agregar");
+            }
             c.AgregarLlamada(nuevaLlamada);
             return c;
         }
