@@ -6,21 +6,41 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Xml;
 using System.Xml.Serialization;
+using Excepciones;
+
 namespace Entidades
 {
     public class SerializerXML<T> : IArchivos<T>
     {
-        bool IArchivos<T>.Guardar(string rutaArchivo, T objeto)
+        public bool Guardar(string rutaArchivo, T objeto)
         {
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(T));
+                XmlTextWriter writer = new XmlTextWriter(rutaArchivo, Encoding.UTF8);
+                serializer.Serialize(writer, objeto);
+            }
+            catch(Exception e)
+            {
+                throw new ErrorArchivoException(e.Message);
+            }
 
             return true;
         }
-        T IArchivos<T>.Leer(string rutaArchivo)
+        public T Leer(string rutaArchivo)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            XmlTextReader reader = new XmlTextReader(rutaArchivo);
-            T retorno = (T)serializer.Deserialize(reader);
-            reader.Close();
+            T retorno;
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(T));
+                XmlTextReader reader = new XmlTextReader(rutaArchivo);
+                retorno = (T)serializer.Deserialize(reader);
+                reader.Close();
+            }
+            catch(Exception e)
+            {
+                throw new ErrorArchivoException(e.Message);
+            }
 
             return retorno;
 

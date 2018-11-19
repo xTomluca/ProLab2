@@ -12,7 +12,9 @@ namespace Entidades
     public class Votacion
     {
     // DEVUELVE UN TIPO DE DATO Y RECIBE PARAMETROS COMO EL EL MANEJADOR
-    public delegate void Voto(string senador, Votacion.EVoto voto);
+    //DECLARO DELEGADO
+
+        public delegate void Voto(string senador, Votacion.EVoto voto);
         public enum EVoto { Afirmativo, Negativo, Abstencion, Esperando }
 
         private string nombreLey;
@@ -33,25 +35,7 @@ namespace Entidades
                 this.nombreLey = value;
             }
         }
-        public Dictionary<string,EVoto> Senadores
-        {
-            get
-            {
-                return this.senadores;
-            }
-        }
 
-        public Voto EventoVotoEfectuado
-        {
-            get
-            {
-                return this.EventoVotoEfectuado;
-            }
-            set
-            {
-                this.eventoVotoEfectuado = value;
-            }
-        }
 
         public short ContadorAfirmativo
         {
@@ -98,18 +82,6 @@ namespace Entidades
             this.senadores = senadores;
         }
 
-        public static void Serializar(Votacion v)
-        {
-
-            XmlSerializer serializer = new XmlSerializer(typeof(Votacion));
-            XmlTextWriter writer = new XmlTextWriter("Votacion.txt",Encoding.UTF8);
-            serializer.Serialize(writer, v);
-            writer.Close();
-
-        }
-
-
-
         public void Simular()
         {
             // Reseteo contadores
@@ -121,23 +93,22 @@ namespace Entidades
             {
                 // Duermo el hilo
                 System.Threading.Thread.Sleep(2134);
-
+               // System.Threading.Thread.Sleep(2);
                 // Leo el senador actual
                 KeyValuePair<string, EVoto> k = this.senadores.ElementAt(index);
                 // Generador de número aleatorio
                 Random r = new Random(k.Key.ToString().Length + DateTime.Now.Millisecond);
                 // Modifico el voto de forma aleatoria
-                this.senadores[k.Key] = (EVoto)r.Next(0, 3);
-
+                this.senadores[k.Key]= (EVoto)r.Next(0, 3);
                 // Invocar Evento
-                EventoVotoEfectuado.Invoke(k.Key,k.Value);
+                eventoVotoEfectuado.Invoke(k.Key,this.senadores[k.Key]);
                 // Incrementar contadores
-                if (k.Value == EVoto.Abstencion)
-                    contadorAbstencion++;
-                else if (k.Value == EVoto.Afirmativo)
-                    this.contadorAfirmativo++;
-                else if (k.Value == EVoto.Negativo)
-                    contadorNegativo++;
+                if (this.senadores[k.Key] == EVoto.Abstencion)
+                    this.ContadorAbstencion++;
+                else if (this.senadores[k.Key] == EVoto.Afirmativo)
+                    this.ContadorAfirmativo++;
+                else if (this.senadores[k.Key] == EVoto.Negativo)
+                    ContadorNegativo++;
             }
         }
     }

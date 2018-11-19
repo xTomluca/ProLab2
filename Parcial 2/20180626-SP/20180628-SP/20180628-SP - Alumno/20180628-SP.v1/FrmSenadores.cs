@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-
+using System.IO;
 using Entidades;
-
+using Excepciones;
 namespace _20180628_SP.v1
 {
     public partial class FrmSenadores : Form
@@ -88,6 +88,25 @@ namespace _20180628_SP.v1
                 {
                     MessageBox.Show((int.Parse(lblAfirmativo.Text) - int.Parse(lblNegativo.Text)) > 0 ? "Es Ley" : "No es Ley", txtLeyNombre.Text);
                     // Guardar resultados
+                    string conection = "Data Source=.\\SQLEXPRESS; Initial Catalog=votacion-sp-2018; Integrated Security=True";
+                    Dao guardarSql = new Dao();
+                    SerializerXML<Votacion> guardar = new SerializerXML<Votacion>();
+                    try
+                    {
+                        guardarSql.Guardar(conection, this.votacion);
+                    }
+                    catch(Exception)
+                    {
+
+                    }
+                    try
+                    {
+                        guardar.Guardar("VotacionActual.txt",this.votacion);
+                    }
+                    catch(ErrorArchivoException)
+                    {
+
+                    }
 
                 }
             }
@@ -108,7 +127,7 @@ namespace _20180628_SP.v1
             lblAbstenciones.Text = "0";
 
             // EVENTO
-            votacion.EventoVotoEfectuado += ManejadorVoto;
+            votacion.eventoVotoEfectuado += ManejadorVoto;
             // THREAD
             Thread t = new Thread(votacion.Simular);
             t.Start();
