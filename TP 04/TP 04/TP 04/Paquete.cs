@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace TP_04
+namespace Entidades
 {
     public class Paquete : IMostrar<Paquete>
     {
-        public delegate void DelegatoEstado(Object obj, EventArgs args); 
+        public delegate void DelegadoEstado(object obj, EventArgs args);
+        public delegate void DelegadoSQL(object obj, EventArgs args);
         string direccionEntrega;
         EEstado estado;
         string trackingID;
-        public event DelegatoEstado InformaEstado;
+        public event DelegadoSQL BaseSql;
+        public event DelegadoEstado InformaEstado;
 
         public enum EEstado
         {
@@ -60,23 +62,21 @@ namespace TP_04
 
         public void MockCicloDeVida()
         {
-            while (this.Estado != EEstado.Entregado)
+            do
             {
-                Thread.Sleep(240);
                 InformaEstado.Invoke(this,null);
+                Thread.Sleep(4000);
                 this.Estado++;
-            }
-            if(this.Estado==EEstado.Entregado)
+            }while (this.Estado != EEstado.Entregado) ;
+            try
             {
-                try
-                {
-                    PaqueteDAO.Insertar(this);
-                }
-                catch(Exception e)
-                {
-                    throw e;
-                }
+                PaqueteDAO.Insertar(this);
             }
+            catch(Exception)
+            {
+                this.BaseSql.Invoke(this,null);
+            }
+            InformaEstado.Invoke(this, null);
         }
 
         public string MostrarDatos(IMostrar<Paquete> elemento)
@@ -105,6 +105,5 @@ namespace TP_04
         {
             return this.MostrarDatos(this);
         }
-
     }
 }
