@@ -1,6 +1,6 @@
 ﻿namespace Patentes
 {
-    partial class VistaPatente
+    public partial class VistaPatente
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

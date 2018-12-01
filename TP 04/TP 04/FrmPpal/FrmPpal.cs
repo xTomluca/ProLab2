@@ -13,12 +13,21 @@ namespace FrmPpal
     public partial class FrmPpal : Form
     {
         Correo correo;
+
+        /// <summary>
+        /// Constructor formulario
+        /// </summary>
         public FrmPpal()
         {
             InitializeComponent();
             this.correo = new Correo();
         }
 
+        /// <summary>
+        /// Genera nuevo paquete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Paquete p = new Paquete(this.txtDireccion.Text, this.mtxtTrackingID.Text);
@@ -36,6 +45,12 @@ namespace FrmPpal
             this.mtxtTrackingID.Clear();
             this.txtDireccion.Clear();
         }
+
+        /// <summary>
+        /// Manejador de evento, en caso de error en la base de datos muestra mensaje
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="args"></param>
         private void errorBaseDato(object obj, EventArgs args)
         {
             if (this.InvokeRequired)
@@ -49,6 +64,11 @@ namespace FrmPpal
             }
         }
 
+        /// <summary>
+        /// Manejador de evento Informar estado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void paq_InformaEstado(object sender,EventArgs e)
         {
             if (this.InvokeRequired)
@@ -61,6 +81,10 @@ namespace FrmPpal
                 this.ActualizarEstado();
             }
         }
+
+        /// <summary>
+        /// Agrega elementos a ListBox segun su estado
+        /// </summary>
         private void ActualizarEstado()
         {
             this.lstEstadoIngresado.Items.Clear();
@@ -71,26 +95,33 @@ namespace FrmPpal
                 switch(p.Estado)
                 {
                     case Paquete.EEstado.Ingresado:
-                        this.lstEstadoIngresado.Items.Add(p.ToString());
+                        this.lstEstadoIngresado.Items.Add(p);
                         break;
                     case Paquete.EEstado.EnViaje:
-                        this.lstEstadoEnViaje.Items.Add(p.ToString());
+                        this.lstEstadoEnViaje.Items.Add(p);
                         break;
                     case Paquete.EEstado.Entregado:
-                        this.lstEstadoEntregado.Items.Add(p.ToString());
+                        this.lstEstadoEntregado.Items.Add(p);
                         break;
                 }
             }
         }
+
+        /// <summary>
+        /// Finaliza los hilos, al cierre del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmPpal_FormClosing(object sender, FormClosedEventArgs e)
         {
             this.correo.FinEntregas();
         }
 
-        private void btnMostrarTodos_Click(object sender, EventArgs e)
-        {
-            this.MostrarInformacion<List<Paquete>>((IMostrar<List<Paquete>>)correo);
-        }
+        /// <summary>
+        /// Muestra los datos del elemento y lo guarda en archivo de texto
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="elemento">Paquete seleccionado</param>
         private void MostrarInformacion<T>(IMostrar<T> elemento)
         {
             if(!(elemento is null))
@@ -98,7 +129,7 @@ namespace FrmPpal
                 rtbMostrar.Text = elemento.MostrarDatos(elemento);
                 try
                 {
-                    GuardarString.Guardar(rtbMostrar.Text, "salida.txt");
+                    elemento.MostrarDatos(elemento).Guardar("salida.txt");
                 }
                 catch(Exception)
                 {
@@ -107,11 +138,25 @@ namespace FrmPpal
             }
         }
 
+        /// <summary>
+        /// Muestra todos los paquetes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+            this.MostrarInformacion<List<Paquete>>((IMostrar<List<Paquete>>)correo);
+        }
+
+        /// <summary>
+        /// Muestra paquete seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
-        }
-        
 
+        }
     }
 }
