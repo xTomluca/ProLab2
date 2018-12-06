@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2036
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{80E73187-D576-4349-8F5E-ECE665913BCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20180626-SP-Console", "20180626-SP-Console\20180626-SP-Console.csproj", "{3DDDA8F0-8B89-4086-8C09-8FEFACD44565}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{6E3ACEAB-7935-4013-A4BF-65339E204F8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,15 +19,8 @@ Global
 		{3DDDA8F0-8B89-4086-8C09-8FEFACD44565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DDDA8F0-8B89-4086-8C09-8FEFACD44565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DDDA8F0-8B89-4086-8C09-8FEFACD44565}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E3ACEAB-7935-4013-A4BF-65339E204F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E3ACEAB-7935-4013-A4BF-65339E204F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E3ACEAB-7935-4013-A4BF-65339E204F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E3ACEAB-7935-4013-A4BF-65339E204F8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A76559B8-9A8E-45FD-B278-00467292E36B}
 	EndGlobalSection
 EndGlobal

@@ -17,6 +17,17 @@ namespace _20181122_SP
     public partial class FrmPpal : Form
     {
         Queue<Patente> cola;
+        public Queue<Patente> Cola
+        {
+            get
+            {
+                return this.cola;
+            }
+            set
+            {
+                this.cola = value;
+            }
+        }
         List<Thread> threads;
         public FrmPpal()
         {
@@ -102,7 +113,7 @@ namespace _20181122_SP
             if(this.cola.Count>0)
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(vp.MostrarPatente));
-                thread.Start(vp);
+                thread.Start(this.cola.Dequeue());
                 this.threads.Add(thread);
             }
         }

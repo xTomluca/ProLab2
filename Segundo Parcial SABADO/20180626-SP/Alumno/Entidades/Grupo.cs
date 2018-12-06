@@ -3,28 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using Excepciones;
+
 namespace Entidades
 {
     public enum Letras { A, B, C, D, E, F, G, H }
 
-    public class Grupo : IEntradaSalida<Grupo>
+    public class Grupo : IEntradaSalida<Queue<Equipo>>
     {
         private List<Equipo> equipos;
         private Letras grupo;
         private short maxCantidad;
-        public Letras Grupos
-        {
-            get
-            {
-                return this.grupo;
-            }
-            set
-            {
-                this.grupo = value;
-            }
-        }
+
         private Grupo()
         {
             this.equipos = new List<Equipo>();
@@ -33,8 +22,17 @@ namespace Entidades
         public Grupo(Letras grupo, short maxCantidad)
             : this()
         {
-            this.Grupos = grupo;
+            this.grupo = grupo;
             this.maxCantidad = maxCantidad;
+        }
+
+        public static Grupo operator +(Grupo g, Equipo e)
+        {
+            if (g.equipos.Count < g.maxCantidad)
+                g.equipos.Add(e);
+            
+
+            return g;
         }
 
         /// <summary>
@@ -81,9 +79,8 @@ namespace Entidades
             
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(string.Format("{0,-20} {1,2} {2,2} {3,2} {4,2}", "Equipo", "Pt", "GH", "GR", "Df"));
-            //  sb.AppendLine("Equipo".FormatoTabla(-20) + " Pt".FormatoTabla(2) + " GH".FormatoTabla(2) + " GR".FormatoTabla(2) + " Df".FormatoTabla(2));
-            this.equipos.Sort(Grupo.Ordenar);
+            //sb.AppendLine(string.Format("{0,-20} {1,2} {2,2} {3,2} {4,2}", "Equipo", "Pt", "GH", "GR", "Df"));
+            sb.AppendLine("Equipo".FormatoTabla(-20) + " Pt".FormatoTabla(2) + " GH".FormatoTabla(2) + " GR".FormatoTabla(2) + " Df".FormatoTabla(2));
             sb.AppendLine("----------------------------------------");
             foreach(Equipo e in this.equipos)
                 sb.AppendLine(string.Format("{0,-20} {1,2} {2,2} {3,2} {4,2}", e.Nombre, e.Puntos, e.GolesHechos, e.GolesRecibidos, (e.GolesHechos - e.GolesRecibidos)));
@@ -124,50 +121,9 @@ namespace Entidades
                 }
             }
         }
-        public Grupo Leer()
+
+        Queue<Equipo> Leer()
         {
-            GrupoDAO grupo = null;
-            SqlDataReader reader;
-            try
-            {
-                string grupoStr;
-                grupo = new GrupoDAO();
-                grupo.sqlConnection.Open();
-                grupo.command.CommandText = "SELECT * FROM Equipos";
-                reader = grupo.command.ExecuteReader();
-                while(reader.Read())
-                {
-                    grupoStr = reader["grupo"].ToString();
-                    if (grupoStr == this.grupo.ToString())
-                        this.equipos.Add(new Equipo(int.Parse(reader["id"].ToString()), reader["nombre"].ToString()));
-                }
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                if(!(grupo is null))
-                {
-                    grupo.sqlConnection.Close();
-                }
-            }
-            return this;
-        }
-        public Grupo Guardar()
-        {
-            throw new NotImplementedException("El grupo no puede ser serialziado");
-        }
-        public static Grupo operator +(Grupo a, Equipo equipo)
-        {
-            if (a.maxCantidad > a.equipos.Count)
-                a.equipos.Add(equipo);
-           else
-           {
-                throw new GrupoLlenoException(string.Format("El Grupo {0} ya cuenta con {1} equpos",a.grupo.ToString(), a.equipos.Count));
-           }
-           return a;
 
         }
     }

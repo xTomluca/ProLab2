@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
+using Entidades;
 
 namespace Archivos
 {
@@ -33,7 +34,8 @@ namespace Archivos
         public void Guardar(string archivo, T datos)
         {
             XmlTextWriter writer = null;
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            List<Patente> lp = new List<Patente>();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Patente>));
             try
             {
                 writer = new XmlTextWriter(string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), archivo),Encoding.UTF8);

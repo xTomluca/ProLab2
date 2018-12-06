@@ -40,18 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Equipo.cs" />
-    <Compile Include="FormatoTabla.cs" />
     <Compile Include="Grupo.cs" />
-    <Compile Include="GrupoDAO.cs" />
-    <Compile Include="IEntradaSalida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Torneo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
-      <Project>{6e3aceab-7935-4013-a4bf-65339e204f8b}</Project>
-      <Name>Excepciones</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

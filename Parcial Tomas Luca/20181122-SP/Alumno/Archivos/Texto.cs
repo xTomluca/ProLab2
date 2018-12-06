@@ -41,13 +41,22 @@ namespace Archivos
                 reader = new StreamReader(string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.Desktop), archivo));
                 while (!reader.EndOfStream)
                 {
-                    Patente p = PatenteStringExtension.ValidarPatente(reader.ReadLine());
-                    datos.Enqueue(p);
+                    Patente p = null;
+                    try
+                    {
+                        p = PatenteStringExtension.ValidarPatente(reader.ReadLine());
+                    }
+                    catch(Exception)
+                    {
+                        continue;
+                    }
+                    if(!(p is null))
+                        datos.Enqueue(p);
                 }
             }
-            catch(PatenteInvalidaException e)
+            catch(Exception e)
             {
-                
+                throw e;
             }
             finally
             {
